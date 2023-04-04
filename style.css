@@ -1,0 +1,27 @@
+/* #set-height1 {
+    display: block;
+    height: 400vh;
+    scroll-behavior: smooth;
+  }
+  #v0 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+ 
+  p font-family helvetica {
+    font-size: 24px;
+  }
+
+  body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+  } */ 
+  /* all above from first attempt */
+
+  

@@ -5,20 +5,92 @@ body{
     margin: 0;
     padding: 0;
 }
-section{
-    height: 100vh;
-}
+
 .switch-cursive {
     font-family: 'Dawning of a New Day';
 }
 
-.firstSection video{
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
+
+ .double-context{ 
+ 
+    width: 100%;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+} 
+#text-container p {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
   
+  #text-container p.fade-in-out {
+    opacity: 1;
+  }
+  #text-container p.fade-in {
+    opacity: 1;
+  } */
+
+
+   #container .text {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  #container .text:first-child {
+    opacity: 1;
+  }
+  .intro {
+    height: 100vh;
+  }
+  
+  .intro video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  
+
+  section .sides {
+
+    color: black;
+  }
+  
+  section  {
+    padding-top: 300px;
+    text-align: center;
+    font-size: 80px;
+  }
+  
+
+  .vid{
+    height: 500px;
+    width: 500px;
+    
+  }
+
+h1{
+  font-size: 20px;
+  color: white;
+}
+  .s-gold{
+    color: #c8a064;
+  }
+  .pl{
+width: 500px;
+height: 500px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: left;
+padding: 2rem;
+color: white;
+
+
+  }
+
+
+  
+
+  .cs2{
+    height: 1500px;
+  }

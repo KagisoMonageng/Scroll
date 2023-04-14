@@ -1,27 +1,24 @@
-/* #set-height1 {
-    display: block;
-    height: 400vh;
-    scroll-behavior: smooth;
-  }
-  #v0 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
+body{
     height: 100vh;
-  }
- 
-  p font-family helvetica {
-    font-size: 24px;
-  }
+    background-color: #001D38;
+    margin: 0;
+    padding: 0;
+}
+section{
+    height: 100vh;
+}
+.switch-cursive {
+    font-family: 'Dawning of a New Day';
+}
 
-  body{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    place-items: center;
-  } */ 
-  /* all above from first attempt */
-
+.firstSection video{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
   

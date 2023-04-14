@@ -1,15 +1,26 @@
+// Sections
 const intro = document.querySelector(".intro");
-const video = intro.querySelector("video");
-const text = intro.querySelector("h1");
+const secondSec = document.querySelector(".second");
+
+// Videos
+const videoIntro = intro.querySelector("video");
+const videoSecond = secondSec.querySelector("video");
+
+// Texts
+const textIntro = intro.querySelector("h1");
+const textSecond = secondSec.querySelector("h1");
+
 //END SECTION
 const section = document.querySelector("section");
 const end = section.querySelector("h1");
 
 //SCROLLMAGIC
 const controller = new ScrollMagic.Controller();
+const secondController = new ScrollMagic.Controller();
+
 
 //Scenes
-let scene = new ScrollMagic.Scene({
+let introScene = new ScrollMagic.Scene({
   duration: 9000,
   triggerElement: intro,
   triggerHook: 0
@@ -18,29 +29,76 @@ let scene = new ScrollMagic.Scene({
   .setPin(intro)
   .addTo(controller);
 
-//Text Animation
-const textAnim = TweenMax.fromTo(text, 3, { opacity: 1 }, { opacity: 0 });
+let secondScene = new ScrollMagic.Scene({
+  duration: 9000,
+  triggerElement: secondSec,
+  triggerHook: 0
+})
+  .addIndicators()
+  .setPin(secondSec)
+  .addTo(secondController);
 
-let scene2 = new ScrollMagic.Scene({
+//Text Animation
+const textOpacity = TweenMax.fromTo(textIntro, 3, { opacity: 1 }, { opacity: 0 });
+const textSlide = TweenMax.fromTo(textIntro, 3, { opacity: 1 }, { opacity: 0 });
+
+
+let introSceneText = new ScrollMagic.Scene({
   duration: 3000,
   triggerElement: intro,
   triggerHook: 0
 })
-  .setTween(textAnim)
+  .setTween(textOpacity)
   .addTo(controller);
 
-//Video Animation
-let accelamount = 0.1;
-let scrollpos = 0;
-let delay = 0;
+  let secondSceneText = new ScrollMagic.Scene({
+    duration: 3000,
+    triggerElement: secondSec,
+    triggerHook: 0
+  })
+    .setTween(textSlide)
+    .addTo(secondController);
 
-scene.on("update", e => {
+
+
+introScene.on("update", e => {
   scrollpos = e.scrollPos / 1000;
 });
 
-setInterval(() => {
-  delay += (scrollpos - delay) * accelamount;
-  console.log(scrollpos, delay);
+secondScene.on("update", e => {
+  scroll_two = e.scrollPos / 1000;
+});
 
-  video.currentTime = delay;
-}, 33.3);
+if(isElementInViewport(intro)){
+  //videoIntro Animation
+let accelamount = 0.1;
+let scrollpos = 0;
+let scroll_two = 0;
+let delay = 0;
+  setInterval(() => {
+    delay += (scrollpos - delay) * accelamount;
+    console.log(scrollpos, delay);
+    videoIntro.currentTime = delay;
+  }, 33.3);
+}else if(isElementInViewport(secondSec)){
+
+  let accelamount = 0.1;
+let scrollpos = 0;
+let scroll_two = 0;
+let delay = 0;
+  setInterval(() => {
+    delay += (scroll_two - delay) * accelamount;
+    console.log(scroll_two, delay);
+    videoSecond.currentTime = delay;
+  }, 33.3);
+}
+
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
